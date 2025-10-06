@@ -19,6 +19,6 @@
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
-cp $GITHUB_WORKSPACE/mi4a/mt7621.mk target/linux/ramips/image/mt7621.mk
+cp $GITHUB_WORKSPACE/mi4a/mt7621.mk target/linux/ramips/image/
 
-cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
+cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/
