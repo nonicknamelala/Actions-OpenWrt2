@@ -16,16 +16,3 @@
 # Add a feed source
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-
-lsblk
-df -Th
-echo 'list openwrt'
-ls -l
-echo 'list /mnt'
-ls /mnt
-echo 'mkdir /mnt/build_dir'
-mkdir /mnt/build_dir
-ls /mnt
-echo 'link dir'
-ln -sf /mnt/build_dir build_dir
-ls -l
