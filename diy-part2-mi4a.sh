@@ -21,4 +21,8 @@
 
 cp $GITHUB_WORKSPACE/mi4a/mt7621.mk target/linux/ramips/image/
 
+chmod 644 target/linux/ramips/image/mt7621.mk
+
 cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/
+
+chmod 644 target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
