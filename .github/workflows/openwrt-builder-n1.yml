@@ -40,6 +40,16 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        lsblk
+        df -Th
+        echo 'list openwrt'
+        ls -l
+        echo 'list /mnt'
+        ls /mnt
+        echo 'mkdir /mnt/build_dir'
+        sudo mkdir /mnt/build_dir
+        sudo chown $USER:$GROUPS /mnt/build_dir
+        ls /mnt
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
         sudo docker image prune --all --force
         sudo -E apt-get -qq update
@@ -56,6 +66,9 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        echo 'link dir'
+        ln -sf /mnt/build_dir /workdir/openwrt/build_dir
+        ls -l /workdir/openwrt
         
     - name: Load custom feeds
       run: |
