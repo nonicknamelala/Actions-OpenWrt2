@@ -42,14 +42,10 @@ jobs:
       run: |
         lsblk
         df -Th
-        echo 'list openwrt'
-        ls -l
+        echo 'list /mnt/build_dir'
+        ls -l /mnt/build_dir
         echo 'list /mnt'
-        ls /mnt
-        echo 'mkdir /mnt/build_dir'
-        sudo mkdir /mnt/build_dir
-        sudo chown $USER:$GROUPS /mnt/build_dir
-        ls /mnt
+        ls -l /mnt
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
         sudo docker image prune --all --force
         sudo -E apt-get -qq update
@@ -57,18 +53,18 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
+        echo 'list /mnt/workdir'
+        ls -l /mnt
+        ls -l /mnt/workdir
 
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        echo 'link dir'
-        ln -sf /mnt/build_dir /workdir/openwrt/build_dir
-        ls -l /workdir/openwrt
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
       run: |
