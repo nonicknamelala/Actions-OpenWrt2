@@ -26,3 +26,4 @@ cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ra
 cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-common-o.dtsi target/linux/ramips/dts/
 
 cp $GITHUB_WORKSPACE/mi4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/
+
